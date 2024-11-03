@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Bell, ChevronDown, FileText, Filter, Info, LineChart as LineChartIcon, LogOut, Menu, Moon, Search, Settings, Sun, AlertTriangle, CheckCircle, X, Activity, Clock, User, FileBarChart, Database, ToggleLeft, Globe, Users, Shield, Truck, Plus, Pencil, Trash, MapPin } from 'lucide-react'
+import { Bell, ChevronDown, FileText, Filter, Info, LineChart as LineChartIcon, LogOut, Menu, Moon, Search, Sun, AlertTriangle, CheckCircle, X, Activity, Clock, User, FileBarChart, Database, Globe, Shield, Truck, Plus, Pencil, Trash, MapPin } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/badge"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Switch } from "@/components/ui/switch"
 import { Slider } from "@/components/ui/slider"
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, BarChart, Bar, Legend } from 'recharts'
@@ -179,7 +179,7 @@ export default function DashboardOne() {
     setUnreadCount(notifications.filter(notification => !notification.read).length)
   }, [notifications])
 
-  const markAsRead = (id) => {
+  const markAsRead = (id: number) => {
     setNotifications(prevNotifications => 
       prevNotifications.map(notification => 
         notification.id === id ? { ...notification, read: true } : notification
@@ -187,13 +187,13 @@ export default function DashboardOne() {
     )
   }
 
-  const deleteNotification = (id) => {
+  const deleteNotification = (id: number) => {
     setNotifications(prevNotifications => 
       prevNotifications.filter(notification => notification.id !== id)
     )
   }
 
-  const updateSetting = (key, value) => {
+  const updateSetting = (key: string, value: unknown) => {
     setSettings(prevSettings => ({
       ...prevSettings,
       [key]: value
@@ -206,7 +206,7 @@ export default function DashboardOne() {
     setIsAddUserModalOpen(false)
   }
 
-  const deleteUser = (id) => {
+  const deleteUser = (id: number) => {
     setUsers(prevUsers => prevUsers.filter(user => user.id !== id))
   }
 
@@ -535,7 +535,7 @@ export default function DashboardOne() {
                   <div className="flex space-x-4">
                     <Select value={reportType} onValueChange={setReportType}>
                       <SelectTrigger className="w-[180px] bg-[#c7e5d0] text-[#006871]">
-                        <Select placeholder="Select report type" />
+                        <SelectValue placeholder="Select report type" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="monthly">Monthly Report</SelectItem>
@@ -647,7 +647,14 @@ export default function DashboardOne() {
                     </ul>
                     <h3 className="font-semibold mb-2">Recommendations:</h3>
                     <ol className="list-decimal pl-5">
-                      <li>Focus on increasing adoption rates in underperforming regions like Zanzibar through targeted awareness campaigns and incentives.</li>
+// Before:
+value: "Last 6 Months" should be "Last 6 Months"
+'can't' should be "can&apos;t"
+'don't' should be "don&apos;t"
+
+// Search through the file for any strings containing apostrophes and replace them with:
+"can&apos;t"
+"don&apos;t"
                       <li>Implement strategies to accelerate adoption in Dodoma and Mwanza to match the success seen in Dar es Salaam.</li>
                       <li>Continue health education programs to further reduce respiratory issues and burns related to traditional cooking methods.</li>
                       <li>Explore partnerships with local organizations to enhance the distribution and affordability of clean cooking solutions.</li>
@@ -729,7 +736,7 @@ export default function DashboardOne() {
                           }
                         </Geographies>
                         {regionData.map(({ name, coordinates, adoptionRate }) => (
-                          <Marker key={name} coordinates={coordinates}>
+                          <Marker key={name} coordinates={coordinates as [number, number]}>
                             <circle r={5} fill="#006871" stroke="#fff" strokeWidth={2} />
                             <text
                               textAnchor="middle"
