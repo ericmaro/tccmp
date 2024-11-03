@@ -519,9 +519,9 @@ export default function DashboardOne() {
                     <ul className="list-disc pl-5 space-y-2">
                       <li>The adoption rate is projected to reach 98% by 2027, indicating strong growth potential.</li>
                       <li>Cost remains the primary barrier to adoption, suggesting a need for financial incentives or more affordable clean cooking solutions.</li>
-                      <li>Health improvements and environmental impact show the highest scores in our impact analysis, highlighting the program's success in these areas.</li>
+                      <li>Health improvements and environmental impact show the highest scores in our impact analysis, highlighting the program&apos;s success in these areas.</li>
                       <li>Cultural preferences are a significant barrier, indicating a need for more culturally-sensitive clean cooking solutions and education programs.</li>
-                      <li>The rapid increase in adoption rate correlates strongly with decreased health incidents, demonstrating the program's positive impact on public health.</li>
+                      <li>The rapid increase in adoption rate correlates strongly with decreased health incidents, demonstrating the program&apos;s positive impact on public health.</li>
                     </ul>
                   </CardContent>
                 </Card>
