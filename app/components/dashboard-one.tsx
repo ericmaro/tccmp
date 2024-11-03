@@ -647,14 +647,6 @@ export default function DashboardOne() {
                     </ul>
                     <h3 className="font-semibold mb-2">Recommendations:</h3>
                     <ol className="list-decimal pl-5">
-// Before:
-value: "Last 6 Months" should be "Last 6 Months"
-'can't' should be "can&apos;t"
-'don't' should be "don&apos;t"
-
-// Search through the file for any strings containing apostrophes and replace them with:
-"can&apos;t"
-"don&apos;t"
                       <li>Implement strategies to accelerate adoption in Dodoma and Mwanza to match the success seen in Dar es Salaam.</li>
                       <li>Continue health education programs to further reduce respiratory issues and burns related to traditional cooking methods.</li>
                       <li>Explore partnerships with local organizations to enhance the distribution and affordability of clean cooking solutions.</li>
@@ -802,7 +794,7 @@ value: "Last 6 Months" should be "Last 6 Months"
                     <CardContent>
                       <div className="text-2xl font-bold text-[#006871]">{notifications.length}</div>
                       <p className="text-xs text-[#003b3f]">
-                        {unreadCount} unread
+                        {unreadCount} unread notifications. You can&apos;t miss these!
                       </p>
                     </CardContent>
                   </Card>
@@ -1013,7 +1005,7 @@ value: "Last 6 Months" should be "Last 6 Months"
                         {(supplierData.reduce((sum, supplier) => sum + supplier.performance, 0) / supplierData.length).toFixed(1)}%
                       </div>
                       <p className="text-xs text-[#003b3f]">
-                        Based on delivery time, quality, and customer feedback
+                        Based on delivery time, quality, and customer feedback. Don&apos;t forget to check regularly.
                       </p>
                     </CardContent>
                   </Card>
