@@ -25,7 +25,6 @@ const adoptionData = [
   { month: 'May', adoption: 79 },
   { month: 'Jun', adoption: 82 },
 ]
-
 const energySourceData = [
   { name: 'Clean Cooking', value: 45 },
   { name: 'Traditional', value: 55 },
